@@ -3,13 +3,10 @@
 @section('content')
   <div class="col-sm-8 blog-main">
 
-  @foreach ($posts as $post)
+  	<h1> {{ $post->title }} </h1>
 
-    @include('blog.post')
-    
-  @endforeach
+  	{{ $post->body }}
 
   </div><!-- /.blog-main -->
 
 @endsection
-
