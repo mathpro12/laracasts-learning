@@ -9,7 +9,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-    	return view ('blog.index');
+    	$posts = Blog::latest()->get();
+
+    	return view ('blog.index', compact('posts'));
     }
 
     public function create()
@@ -20,6 +22,13 @@ class PostsController extends Controller
     public function store()
     {
 
+    	$this->validate(request(), [
+
+			'title' => 'required',
+    		'body' => 'required'
+
+    		]);
+
     	Blog::create([
 
     		'title' => request('title'),
@@ -29,6 +38,13 @@ class PostsController extends Controller
 
     	return redirect('/');
 
+    }
+
+    public function show($id)
+    {
+    	$post = Blog::find($id);
+
+    	return view ('blog.show', compact('post'));
     }
 }
 
