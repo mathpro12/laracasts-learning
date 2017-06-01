@@ -6,5 +6,4 @@
 
 @endsection
 
-@include('layouts.navbar')
 

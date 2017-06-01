@@ -22,5 +22,4 @@
 
 @endsection
 
-@include('layouts.navbar')
 
