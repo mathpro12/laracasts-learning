@@ -11,11 +11,11 @@ class TasksController extends Controller
     {
     	$tasks = Task::all();
 
-    	return view('welcome')->with(compact('tasks'));
+    	return view('tasks.welcome')->with(compact('tasks'));
     }
 
     public function show(Task $task)
     {
-    	return view('zoom', compact('task'));
+    	return view('tasks.zoom', compact('task'));
     }
 }
