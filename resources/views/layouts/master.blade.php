@@ -12,7 +12,7 @@
     <!-- Bootstrap core CSS -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-  	<link href="/css/blog.css" rel="stylesheet">
+  	<link href="/css/app.css" rel="stylesheet">
 
     @include ('layouts.navbar')
 
@@ -26,9 +26,13 @@
 
   	<div class = "row">
 
-  		@yield ('content')
+      <div class="col-sm-8 blog-main">
 
-  		@include ('layouts.blogsidebar')
+    		@yield ('content')
+
+      </div>
+
+  		  @include ('layouts.blogsidebar')
 
   	</div>
 

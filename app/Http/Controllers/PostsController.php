@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Blog;
+use App\Post;
 
 class PostsController extends Controller
 {
     public function index()
     {
-    	$posts = Blog::latest()->get();
+    	$posts = Post::latest()->get();
 
     	return view ('blog.index', compact('posts'));
     }
@@ -29,20 +29,20 @@ class PostsController extends Controller
 
     		]);
 
-    	Blog::create([
+    	Post::create([
 
     		'title' => request('title'),
     		'body' => request('body')
 
     	]);
 
-    	return redirect('/');
+    	return redirect('/'); 
 
     }
 
-    public function show($id)
+    public function show(POst $post)
     {
-    	$post = Blog::find($id);
+    	#$post = Post::find($id);
 
     	return view ('blog.show', compact('post'));
     }
