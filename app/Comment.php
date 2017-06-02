@@ -4,8 +4,13 @@ namespace App;
 
 class Comment extends Model
 {
-    public function blog()
+    public function post()
     {
-    	return $this->belongsTo(Blog::class);
+    	return $this->belongsTo(Post::class);
+    }
+
+    public function user()
+    {
+    	return $this->belongsTo(User::class);
     }
 }
