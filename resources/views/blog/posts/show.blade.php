@@ -14,11 +14,11 @@
 
 	  		<div class = "list-group-item">
 
+          {{ $comment->user->name }} at
+          {{ $comment->created_at->diffForHumans() }}: &nbsp
+          {{ $comment->body }}
 
-	  			{{ $comment->created_at->diffForHumans() }}: &nbsp
-  			{{ $comment->body }}
-
-  		</div>
+  		  </div>
 
   	@endforeach
 
