@@ -4,7 +4,7 @@
 
   @foreach ($posts as $post)
 
-    @include('blog.post')
+    @include('blog.posts.post')
     
   @endforeach
 
