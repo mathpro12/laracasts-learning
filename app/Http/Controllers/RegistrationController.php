@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Mail\Welcome;
+use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
 {
@@ -17,15 +19,8 @@ class RegistrationController extends Controller
     	return view ('blog.registration.create');
     }
 
-    public function store()
+    public function store(RegistrationRequest $request)
     {
-    	$this->validate(request(), [
-
-			'name' => 'required',
-    		'email' => 'required|email',
-    		'password' => 'required|confirmed'
-
-    	]);
 
     	$user = User::create([
 
@@ -37,6 +32,10 @@ class RegistrationController extends Controller
 
     	auth()->login($user);
 
-    	return redirect('/');
+        \Mail::to($user)->send(new Welcome($user));
+
+        session()->flash('message', 'Thanks for signin up!');
+
+    	return redirect()->home();
     }
 }
