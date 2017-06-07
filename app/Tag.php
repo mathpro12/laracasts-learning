@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Tag;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
@@ -12,7 +13,7 @@ class Tag extends Model
         return $this->belongsToMany(Post::class);        
     }
 
-    public function getRouteKeyname()
+    public function getRouteKeyName()
     {
     	return 'name';
     }

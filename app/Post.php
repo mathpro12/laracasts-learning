@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
+
 Use Carbon\Carbon;
+
 
 class Post extends Model
 {
