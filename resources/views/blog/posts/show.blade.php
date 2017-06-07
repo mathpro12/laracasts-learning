@@ -8,6 +8,24 @@
 
   	{{ $post->body }}
 
+
+    @if(count ($post->tags))
+
+      <hr>
+
+      <h2>Tags</h2> 
+
+      <ul>
+
+        @foreach( $post->tags as $tag)
+
+          <li> <a href='/posts/tags/{{$tag->name}}'>{{ $tag->name }}</a></li>
+
+        @endforeach
+
+      </ul>
+    @endif
+
   	<hr>
 
 	  	@foreach ($post->comments as $comment)
